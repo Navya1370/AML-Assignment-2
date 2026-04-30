@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Decision Tree Explorer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1 class="title">🌳 Decision Tree Explorer</h1>
+
+<div class="container">
+
+    <div class="card"><a href="/tree/id3">ID3</a><p>Information Gain</p></div>
+    <div class="card"><a href="/tree/c45">C4.5</a><p>Gain Ratio</p></div>
+    <div class="card"><a href="/tree/cart">CART</a><p>Gini Index</p></div>
+    <div class="card"><a href="/tree/entropy">Entropy DT</a><p>Sklearn</p></div>
+    <div class="card"><a href="/tree/gini">Gini DT</a><p>Sklearn</p></div>
+
+</div>
+
+<a href="/compare" class="compare-btn">📊 Compare Models</a>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+body {
+    background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+}
+
+.title {
+    margin-top: 40px;
+    font-size: 40px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 15px;
+    width: 200px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00adb5;
+}
+
+.card a {
+    text-decoration: none;
+    color: #00adb5;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.card p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.compare-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 25px;
+    background: #00adb5;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.compare-btn:hover {
+    background: #ff2e63;
+
+
+.tree-img {
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00adb5;
+    
+}
+}
