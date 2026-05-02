@@ -1,70 +1,297 @@
 body {
-    background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+    background: #0f0f0f;
     color: white;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Outfit', 'Segoe UI', sans-serif;
     text-align: center;
 }
 
+/* Title */
 .title {
-    margin-top: 40px;
     font-size: 40px;
+    margin-top: 30px;
+    color: #00ffcc;
 }
 
+/* Cards */
 .container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     margin-top: 40px;
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 25px;
+    background: #1e1e1e;
+    padding: 20px;
     margin: 15px;
+    border-radius: 12px;
     width: 200px;
     transition: 0.3s;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .card:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px #00adb5;
+    background: #292929;
 }
 
 .card a {
+    color: #00ffcc;
+    font-size: 20px;
     text-decoration: none;
-    color: #00adb5;
-    font-size: 22px;
-    font-weight: bold;
 }
 
 .card p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #ccc;
+    color: #aaa;
 }
 
+/* Buttons */
 .compare-btn {
     display: inline-block;
-    margin-top: 40px;
-    padding: 15px 25px;
-    background: #00adb5;
-    border-radius: 10px;
+    margin: 20px;
+    padding: 12px 20px;
+    background: #00ffcc;
+    color: black;
+    border-radius: 8px;
     text-decoration: none;
-    color: white;
-    transition: 0.3s;
 }
 
-.compare-btn:hover {
-    background: #ff2e63;
-
-
-.tree-img {
-    margin-top: 20px;
+/* Result box */
+.result-box {
+    margin-top: 40px;
+    padding: 30px;
+    background: #1e1e1e;
     border-radius: 10px;
-    box-shadow: 0 0 15px #00adb5;
-    
+    display: inline-block;
+    font-size: 28px;
 }
+
+/* ==================================================
+   NEW: PREDICTION FORM & RESULT DASHBOARD STYLES
+   ================================================== */
+
+.predict-bg,
+.result-bg {
+    background: radial-gradient(circle at top, #111 0%, #050505 100%);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-wrapper {
+    max-width: 900px;
+    width: 90%;
+    margin: 40px auto;
+}
+
+.dashboard-header h2 {
+    font-size: 2.5rem;
+    color: #00ffcc;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.dashboard-header p {
+    color: #888;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+/* Glassmorphism Form */
+.glass-form {
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    text-align: left;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccc;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #00ffcc;
+    background: rgba(0, 255, 204, 0.05);
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.form-actions {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.glow-btn {
+    background: linear-gradient(135deg, #00ffcc 0%, #00b399 100%);
+    color: #000;
+    font-weight: 700;
+    font-size: 1.2rem;
+    font-family: 'Outfit', sans-serif;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
+}
+
+.glow-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 255, 204, 0.5);
+}
+
+.glow-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-left: 8px;
+}
+
+.glow-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #888;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #00ffcc;
+}
+
+/* ==================================================
+   RESULT DASHBOARD
+   ================================================== */
+
+.result-dashboard {
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.result-title {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.result-card {
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(15px);
+    padding: 50px 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+    transition: all 0.5s ease;
+}
+
+.result-card p.subtitle {
+    color: #aaa;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.prediction-value {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 10px 0 20px 0;
+}
+
+.prediction-details p {
+    color: #ddd;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Dynamic styling for High Income (>50K) */
+.result-card.high-income {
+    border-color: rgba(0, 255, 204, 0.3);
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.15);
+}
+
+.result-card.high-income .prediction-value {
+    color: #00ffcc;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+}
+
+/* Dynamic styling for Low Income (<=50K) */
+.result-card.low-income {
+    border-color: rgba(162, 0, 255, 0.3);
+    box-shadow: 0 0 30px rgba(162, 0, 255, 0.15);
+}
+
+.result-card.low-income .prediction-value {
+    color: #a200ff;
+    text-shadow: 0 0 20px rgba(162, 0, 255, 0.4);
+}
+
+.result-card.error {
+    border-color: rgba(255, 50, 50, 0.3);
+}
+
+.result-card.error .prediction-value {
+    color: #ff3232;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.secondary-btn {
+    color: #888;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+.secondary-btn:hover {
+    color: #fff;
 }

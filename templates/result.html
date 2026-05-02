@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="result-bg">
+
+    <div class="result-dashboard">
+        <h2 class="result-title">AI Assessment Complete</h2>
+
+        {% if 'Error' in result %}
+        <div class="result-card error">
+            <h1 class="prediction-value">{{ result }}</h1>
+            <p>Something went wrong with the prediction engine.</p>
+        </div>
+        {% else %}
+        <div class="result-card {% if '>50K' in result %}high-income{% else %}low-income{% endif %}">
+            <p class="subtitle">Predicted Income Tier</p>
+            <h1 class="prediction-value">{{ result }}</h1>
+
+            <div class="prediction-details">
+                {% if '>50K' in result %}
+                <p>The model predicts that this profile earns <strong>more than $50,000</strong> annually.</p>
+                {% else %}
+                <p>The model predicts that this profile earns <strong>$50,000 or less</strong> annually.</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="action-buttons">
+            <a href="/predict-page" class="glow-btn">Make Another Prediction</a>
+            <a href="/" class="secondary-btn">Home</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

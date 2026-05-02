@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Income Prediction Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="predict-bg">
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-header">
+            <h2>🔮 Income Prediction Engine</h2>
+            <p>Enter your profile details below to predict your income tier.</p>
+        </div>
+
+        <form action="/predict" method="POST" class="glass-form">
+            <div class="form-grid">
+
+                <!-- Age Input -->
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number" name="age" min="17" max="90" value="30" required>
+                </div>
+
+                <!-- Hours Per Week Input -->
+                <div class="input-group">
+                    <label>Hours per week</label>
+                    <input type="number" name="hours.per.week" min="1" max="99" value="40" required>
+                </div>
+
+                <!-- Categorical Inputs -->
+                {% for col in ['workclass', 'education', 'marital.status', 'occupation', 'relationship', 'race', 'sex']
+                %}
+                <div class="input-group">
+                    <label>{{ col.replace('.', ' ').title() }}</label>
+                    <div class="select-wrapper">
+                        <select name="{{ col }}" required>
+                            {% for option in form_data[col] %}
+                            <option value="{{ option }}">{{ option }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="glow-btn">Predict Income <span class="arrow">→</span></button>
+            </div>
+        </form>
+
+        <a href="/" class="back-link">⬅ Back to Dashboard</a>
+    </div>
+
+</body>
+
+</html>

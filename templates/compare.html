@@ -1,28 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+<h2>📊 Model Comparison</h2>
 
-<h2>Model Comparison</h2>
+<table border="1" style="margin:auto; padding:10px;">
+<tr>
+    <th>Model</th>
+    <th>Criterion</th>
+    <th>Strength</th>
+</tr>
 
-<ul>
-    <li>ID3 – Information Gain</li>
-    <li>C4.5 – Gain Ratio</li>
-    <li>CART – Gini Index</li>
-    <li>Decision Tree (Entropy)</li>
-    <li>Decision Tree (Gini)</li>
-    <li>Random Forest</li>
-    <li>Extra Trees</li>
-</ul>
+<tr><td>ID3</td><td>Information Gain</td><td>Simple & Fast</td></tr>
+<tr><td>C4.5</td><td>Gain Ratio</td><td>Handles real data</td></tr>
+<tr><td>CART</td><td>Gini</td><td>Binary Tree</td></tr>
+<tr><td>Entropy DT</td><td>Entropy</td><td>Accurate</td></tr>
+<tr><td>Gini DT</td><td>Gini</td><td>Fast</td></tr>
 
-<h3>Accuracy Graph</h3>
+</table>
 
+<h3>📈 Accuracy Graph</h3>
 <img src="/accuracy" width="70%">
 
 <br><br>
 <a href="/">⬅ Back</a>
-
-</body>
-</html>

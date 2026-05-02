@@ -97,7 +97,7 @@ def c45(X, y, features):
 
 def print_tree(tree, indent=""):
     if not isinstance(tree, dict):
-        print(indent + "→ Class:", tree)
+        print(indent + "-> Class:", tree)
         return
     
     for feature, branches in tree.items():
@@ -105,6 +105,21 @@ def print_tree(tree, indent=""):
             print(indent + f"Feature {feature} = {value}:")
             print_tree(subtree, indent + "   ")
 
+
+# ================= PREDICT =================
+
+def predict_sample(tree, sample):
+    if not isinstance(tree, dict):
+        return tree
+    feature = list(tree.keys())[0]
+    value = sample[feature]
+    if value in tree[feature]:
+        return predict_sample(tree[feature][value], sample)
+    else:
+        return predict_sample(list(tree[feature].values())[0], sample)
+
+def predict(tree, X):
+    return np.array([predict_sample(tree, sample) for sample in X])
 
 # ================= RUN =================
 
@@ -114,6 +129,10 @@ tree = c45(X_np, y_np, features)
 
 print("\nC4.5 TREE:\n")
 print_tree(tree)
+
+preds = predict(tree, X_np)
+accuracy = np.mean(preds == y_np)
+print(f"\nC4.5 Accuracy on given dataset (using 3 features): {accuracy * 100:.2f}%")
 
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 import matplotlib.pyplot as plt

@@ -1,4 +1,5 @@
 from flask import Flask, render_template, Response
+from flask import request   # add this at top (important)
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier, plot_tree
@@ -17,18 +18,75 @@ df = pd.read_csv("dataset.csv")
 df.replace('?', pd.NA, inplace=True)
 df.dropna(inplace=True)
 
-le = LabelEncoder()
-for col in df.columns:
+categorical_cols = ['workclass', 'education', 'marital.status', 'occupation', 'relationship', 'race', 'sex', 'native.country']
+
+encoders = {}
+for col in categorical_cols:
+    le = LabelEncoder()
     df[col] = le.fit_transform(df[col])
+    encoders[col] = le
+
+target_encoder = LabelEncoder()
+df['income'] = target_encoder.fit_transform(df['income'])
 
 X = df.drop('income', axis=1)
 y = df['income']
+
+# Train model globally for prediction
+global_model = DecisionTreeClassifier(criterion='entropy', max_depth=5)
+global_model.fit(X, y)
+
+# Defaults for excluded form fields
+defaults = {
+    'fnlwgt': X['fnlwgt'].median(),
+    'education.num': X['education.num'].mode()[0],
+    'capital.gain': 0,
+    'capital.loss': 0,
+    'native.country': encoders['native.country'].transform(['United-States'])[0] if 'United-States' in encoders['native.country'].classes_ else X['native.country'].mode()[0]
+}
 
 
 # ===== HOME =====
 @app.route('/')
 def home():
     return render_template('index.html')
+
+
+#----
+
+@app.route('/predict-page')
+def predict_page():
+    form_data = {
+        col: encoders[col].classes_.tolist() for col in ['workclass', 'education', 'marital.status', 'occupation', 'relationship', 'race', 'sex']
+    }
+    return render_template('predict.html', form_data=form_data)
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    try:
+        sample = [
+            int(request.form.get('age', 30)),
+            encoders['workclass'].transform([request.form.get('workclass')])[0],
+            defaults['fnlwgt'],
+            encoders['education'].transform([request.form.get('education')])[0],
+            defaults['education.num'],
+            encoders['marital.status'].transform([request.form.get('marital.status')])[0],
+            encoders['occupation'].transform([request.form.get('occupation')])[0],
+            encoders['relationship'].transform([request.form.get('relationship')])[0],
+            encoders['race'].transform([request.form.get('race')])[0],
+            encoders['sex'].transform([request.form.get('sex')])[0],
+            defaults['capital.gain'],
+            defaults['capital.loss'],
+            int(request.form.get('hours.per.week', 40)),
+            defaults['native.country']
+        ]
+        
+        prediction = global_model.predict([sample])
+        result = target_encoder.inverse_transform(prediction)[0]
+    except Exception as e:
+        result = f"Error: {str(e)}"
+
+    return render_template('result.html', result=result)
 
 
 # ===== TREE PAGE =====
