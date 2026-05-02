@@ -72,7 +72,7 @@ It also provides **tree visualizations, model comparison, and explanations** to 
 ---
 
 ## 📂 Project Structure
-
+  
 Income-Prediction-System/
 │
 ├── app.py                     # Main Flask application
