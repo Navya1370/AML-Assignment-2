@@ -73,29 +73,36 @@ It also provides **tree visualizations, model comparison, and explanations** to 
 
 ## 📂 Project Structure
 
-AML-Assignment-2/
+Income-Prediction-System/
 │
-├── static/
-│ ├── style.css
-│ ├── id3.png
-│ ├── c45.png
-│ ├── cart.png
-│ ├── entropy.png
-│ ├── gini.png
+├── app.py                     # Main Flask application
+├── dataset.csv               # Adult dataset (cleaned/used for training)
 │
-├── templates/
-│ ├── index.html
-│ ├── tree.html
-│ ├── compare.html
-│ ├── predict.html
+├── models/                   # (Optional but recommended)
+│   ├── id3.py                # Custom ID3 implementation
+│   ├── c45.py                # Custom C4.5 implementation
+│   ├── cart.py               # Custom CART implementation
+│   ├── sklearn_models.py     # Entropy, Gini, RF, ExtraTrees
 │
-├── app.py
-├── id3.py
-├── c45.py
-├── cart.py
-├── sklearn_models.py
-├── dataset.csv
-└── README.md
+├── static/                   # Static files (CSS, images)
+│   ├── style.css             # Dark theme UI styling
+│   ├── id3.png               # (optional – if you pre-save trees)
+│   ├── c45.png
+│   ├── cart.png
+│   ├── entropy.png
+│   ├── gini.png
+│
+├── templates/                # HTML pages
+│   ├── index.html            # Home page (model selection UI)
+│   ├── tree.html             # Tree visualization page
+│   ├── compare.html          # Model comparison page
+│   ├── predict.html          # Prediction form page
+│
+├── requirements.txt          # Python dependencies
+├── README.md                 # Project documentation
+│
+└── .gitignore                # Ignore venv, cache files
+
 ---
 
 ## ⚙️ Installation & Setup
