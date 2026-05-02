@@ -1,81 +1,60 @@
-# Decision Tree Explorer 🌳
-
-An interactive Machine Learning web application built using **Flask**, **Python**, and **Scikit-learn** for visualizing and comparing multiple Decision Tree algorithms.
+# 💰 Income Prediction System
+An interactive Machine Learning web application built using **Flask, Python, and Scikit-learn** for predicting income levels and visualizing multiple Decision Tree algorithms.
 
 ---
 
-# 📌 Project Overview
+## 📌 Project Overview
+This project demonstrates how different **Decision Tree algorithms** can be used to predict whether a person's income is **<=50K or >50K** based on given features.
 
-This project demonstrates the implementation and visualization of different Decision Tree algorithms using the same dataset.
+The system also provides visualizations and comparisons of various tree-based models to help understand their behavior.
 
-The web application provides:
+---
 
-- 🌳 Interactive Decision Tree visualizations
+## ✨ Features
+- 🔮 Income Prediction based on user input
+- 🌳 Decision Tree visualization
 - 📊 Accuracy comparison graphs
 - 📖 Detailed algorithm descriptions
 - 🎨 Modern dark-themed UI
-- ⚡ Flask-based dynamic web interface
+- ⚡ Flask-based dynamic web application
 
 ---
 
-# 🚀 Algorithms Implemented
+## 🚀 Algorithms Implemented
 
-## 1. ID3 (Iterative Dichotomiser 3)
+### 1. ID3 (Iterative Dichotomiser 3)
+- Uses **Entropy & Information Gain**
+- Best for categorical data
+- Simple and interpretable
 
-- Uses **Entropy** and **Information Gain**
-- Best suited for categorical datasets
-- Simple and easy to understand
-
----
-
-## 2. C4.5
-
-- Improved version of ID3
+### 2. C4.5
+- Improved ID3
 - Uses **Gain Ratio**
-- Handles continuous and missing values
+- Handles continuous values
 
----
-
-## 3. CART (Classification and Regression Trees)
-
+### 3. CART (Classification and Regression Trees)
 - Uses **Gini Index**
 - Produces binary trees
-- Widely used in practical ML systems
 
----
+### 4. Decision Tree (Entropy)
+- Implemented using **Scikit-learn**
+- Uses entropy for splitting
 
-## 4. Decision Tree (Entropy)
+### 5. Decision Tree (Gini)
+- Uses **Gini Impurity**
+- Faster than entropy
 
-- Implemented using `sklearn`
-- Uses entropy criterion for node splitting
+### 6. Random Forest
+- Ensemble method
+- Combines multiple trees for better accuracy
 
----
-
-## 5. Decision Tree (Gini)
-
-- Implemented using `sklearn`
-- Uses Gini impurity for classification
-
----
-
-## 6. Random Forest
-
-- Ensemble learning method
-- Combines multiple decision trees
-- Improves prediction accuracy
-
----
-
-## 7. Extra Trees Classifier
-
-- Similar to Random Forest
-- Uses randomized splits
+### 7. Extra Trees Classifier
+- Uses random splits
 - Faster and more diverse trees
 
 ---
 
-# 🛠️ Technologies Used
-
+## 🛠️ Technologies Used
 - Python
 - Flask
 - HTML5
@@ -87,23 +66,23 @@ The web application provides:
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
-```plaintext
 AML-Assignment-2/
 │
 ├── static/
-│   ├── style.css
-│   ├── id3.png
-│   ├── c45.png
-│   ├── cart.png
-│   ├── entropy.png
-│   ├── gini.png
+│ ├── style.css
+│ ├── id3.png
+│ ├── c45.png
+│ ├── cart.png
+│ ├── entropy.png
+│ ├── gini.png
 │
 ├── templates/
-│   ├── index.html
-│   ├── tree.html
-│   ├── compare.html
+│ ├── index.html
+│ ├── tree.html
+│ ├── compare.html
+│ ├── predict.html
 │
 ├── app.py
 ├── id3.py
@@ -112,120 +91,50 @@ AML-Assignment-2/
 ├── sklearn_models.py
 ├── dataset.csv
 └── README.md
-```
+
 
 ---
 
-# ⚙️ Installation & Setup
+## ⚙️ Installation & Setup
 
-## 1️⃣ Clone Repository
-
+### 1️⃣ Clone Repository
 ```bash
 git clone https://github.com/Navya1370/AML-Assignment-2.git
-```
-
----
-
-## 2️⃣ Open Project Folder
-
-```bash
+2️⃣ Navigate to Project Folder
 cd AML-Assignment-2
-```
-
----
-
-## 3️⃣ Install Dependencies
-
-```bash
+3️⃣ Install Dependencies
 pip install flask pandas numpy matplotlib scikit-learn
-```
+4️⃣ Generate Tree Images
 
----
+Run once:
 
-## 4️⃣ Generate Tree Images
-
-Run these files once:
-
-```bash
 python id3.py
 python c45.py
 python cart.py
 python sklearn_models.py
-```
-
----
-
-## 5️⃣ Run Flask Application
-
-```bash
+5️⃣ Run Application
 python app.py
-```
-
----
-
-# 🌐 Open in Browser
-
-```plaintext
+🌐 Open in Browser
 http://127.0.0.1:5000
-```
 
----
+📚 Learning Outcomes
+Understanding Decision Tree algorithms
+Entropy, Gini, Information Gain concepts
+Machine Learning model comparison
+Flask web development
+Data preprocessing techniques
+⭐ Future Improvements
+Add interactive tree visualization
+Upload custom datasets
+Add confusion matrix & reports
+Deploy as a live website
 
-# ✨ Features
+👩‍💻 Author
 
-- 🌳 Dynamic decision tree visualization
-- 📊 Model accuracy comparison
-- 📖 Detailed explanations for every algorithm
-- 🎨 Responsive dark-themed UI
-- ⚡ Easy navigation between models
-- 📈 Machine learning model comparison
+Navya
 
----
-
-# 📷 Screenshots
-
-Add screenshots of:
-- Home page
-- Tree visualization page
-- Comparison graph page
-
----
-
-# 📚 Learning Outcomes
-
-Through this project, we learned:
-
-- Implementation of Decision Tree algorithms
-- Entropy and Gini calculations
-- Information Gain and Gain Ratio
-- Flask web development
-- Machine Learning visualization techniques
-- Model comparison and evaluation
-
----
-
-# 👩‍💻 Author
-
-## Navya
-
-GitHub Profile:  
+🔗 GitHub:
 https://github.com/Navya1370
 
-Project Repository:  
+📁 Project Repo:
 https://github.com/Navya1370/AML-Assignment-2
-
----
-
-# ⭐ Future Improvements
-
-- Add fully interactive tree visualizations
-- Add dataset upload functionality
-- Add confusion matrix and classification reports
-- Deploy application online
-- Improve animations and UI effects
-
----
-
-# 📄 License
-
-This project is developed for educational and academic purposes.
