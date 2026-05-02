@@ -98,7 +98,7 @@ AML-Assignment-2/
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone Repository
-```bash
+
 git clone https://github.com/Navya1370/AML-Assignment-2.git
 2️⃣ Navigate to Project Folder
 cd AML-Assignment-2
@@ -106,28 +106,44 @@ cd AML-Assignment-2
 pip install flask pandas numpy matplotlib scikit-learn
 4️⃣ Generate Tree Images
 
+---
+
 Run once:
 
 python id3.py
 python c45.py
 python cart.py
 python sklearn_models.py
+
+---
+
 5️⃣ Run Application
 python app.py
+
+---
+
 🌐 Open in Browser
 http://127.0.0.1:5000
 
+---
+
 📚 Learning Outcomes
+
 Understanding Decision Tree algorithms
 Entropy, Gini, Information Gain concepts
 Machine Learning model comparison
 Flask web development
 Data preprocessing techniques
+
+---
+
 ⭐ Future Improvements
 Add interactive tree visualization
 Upload custom datasets
 Add confusion matrix & reports
 Deploy as a live website
+
+---
 
 👩‍💻 Author
 
