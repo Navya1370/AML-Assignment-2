@@ -88,26 +88,27 @@ Income-Prediction-System/
 
 ## ⚙️ Installation & Setup
 
-### 1️⃣ Clone Repository
+* Clone Repository
 
 git clone https://github.com/Navya1370/AML-Assignment-2.git
-2️⃣ Open Project Folder
 
+* Open Project Folder
 
 cd AML-Assignment-2
-3️⃣ Install Dependencies
 
+* Install Dependencies
 
 pip install flask pandas numpy matplotlib scikit-learn
-4️⃣ Generate Tree Images (Run Once)
 
+* Generate Tree Images (Run Once)
 
 python id3.py
 python c45.py
 python cart.py
 python sklearn_models.py
 
-5️⃣ Run Application
+* Run Application
+
 python app.py
 
 
