@@ -73,7 +73,6 @@ It also provides **tree visualizations, model comparison, and explanations** to 
 
 ## 📂 Project Structure
 
-
 AML-Assignment-2/
 │
 ├── static/
@@ -97,8 +96,6 @@ AML-Assignment-2/
 ├── sklearn_models.py
 ├── dataset.csv
 └── README.md
-
-
 ---
 
 ## ⚙️ Installation & Setup
